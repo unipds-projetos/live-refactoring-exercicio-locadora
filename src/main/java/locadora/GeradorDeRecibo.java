@@ -7,24 +7,26 @@ public class GeradorDeRecibo {
         String recibo = "Recibo para " + cliente.getNome() + ":\n";
         for (Locacao locacao : cliente.getLocacoes()) {
             double totalParcial = 0.0;
-            switch (locacao.getFilme().getCategoria()) {
+          int diasDeAluguel = locacao.getDiasDeAluguel();
+          Filme filme = locacao.getFilme();
+          switch (filme.getCategoria()) {
                 case NORMAL:
                     totalParcial += 2.0;
-                    if (locacao.getDiasDeAluguel() > 2) {
-                        totalParcial += (locacao.getDiasDeAluguel() - 2) * 1.5;
+                    if (diasDeAluguel > 2) {
+                        totalParcial += (diasDeAluguel - 2) * 1.5;
                     }
                     break;
                 case LANCAMENTO:
-                    totalParcial += locacao.getDiasDeAluguel() * 3;
+                    totalParcial += diasDeAluguel * 3;
                     break;
                 case INFANTIL:
                     totalParcial += 1.0;
-                    if (locacao.getDiasDeAluguel() > 3) {
-                        totalParcial += (locacao.getDiasDeAluguel() - 3) * 1.5;
+                    if (diasDeAluguel > 3) {
+                        totalParcial += (diasDeAluguel - 3) * 1.5;
                     }
                     break;
             }
-            recibo += locacao.getFilme().getTitulo() + "\t" + String.valueOf(totalParcial) + "\n";
+            recibo += filme.getTitulo() + "\t" + String.valueOf(totalParcial) + "\n";
             totalGeral += totalParcial;
         }
         recibo += "Total: " + String.valueOf(totalGeral) + "\n";
