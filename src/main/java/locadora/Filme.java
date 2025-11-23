@@ -23,24 +23,27 @@ public class Filme {
     }
 
   double calculaValorLocacao(int diasDeAluguel) {
-      double totalParcial = 0.0;
       switch (getCategoria()) {
         case NORMAL:
-            totalParcial += 2.0;
+          double totalParcialNormal = 0.0;
+            totalParcialNormal += 2.0;
             if (diasDeAluguel > 2) {
-                totalParcial += (diasDeAluguel - 2) * 1.5;
+                totalParcialNormal += (diasDeAluguel - 2) * 1.5;
             }
-            break;
+          return totalParcialNormal;
         case LANCAMENTO:
-            totalParcial += diasDeAluguel * 3;
-            break;
+          double totalParcialLancamento = 0.0;
+            totalParcialLancamento += diasDeAluguel * 3;
+          return totalParcialLancamento;
         case INFANTIL:
-            totalParcial += 1.0;
+          double totalParcialInfantil = 0.0;
+            totalParcialInfantil += 1.0;
             if (diasDeAluguel > 3) {
-                totalParcial += (diasDeAluguel - 3) * 1.5;
+                totalParcialInfantil += (diasDeAluguel - 3) * 1.5;
             }
-            break;
+            return totalParcialInfantil;
+        default:
+          throw new IllegalStateException("Categoria inválida");
     }
-    return totalParcial;
   }
 }
