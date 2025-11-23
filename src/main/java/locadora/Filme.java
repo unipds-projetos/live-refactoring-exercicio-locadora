@@ -1,6 +1,7 @@
 package locadora;
 
 
+import locadora.precos.Preco;
 import locadora.precos.PrecoInfantil;
 import locadora.precos.PrecoLancamento;
 import locadora.precos.PrecoNormal;
@@ -29,13 +30,13 @@ public class Filme {
   double calculaValorLocacao(int diasDeAluguel) {
       switch (getCategoria()) {
         case NORMAL:
-          PrecoNormal precoNormal = new PrecoNormal();
+          Preco precoNormal = new PrecoNormal();
           return precoNormal.calculaPreco(diasDeAluguel);
         case LANCAMENTO:
-          PrecoLancamento precoLancamento = new PrecoLancamento();
+          Preco precoLancamento = new PrecoLancamento();
           return precoLancamento.calculaPreco(diasDeAluguel);
         case INFANTIL:
-          PrecoInfantil precoInfantil = new PrecoInfantil();
+          Preco precoInfantil = new PrecoInfantil();
           return precoInfantil.calculaPreco(diasDeAluguel);
         default:
           throw new IllegalStateException("Categoria inválida");
