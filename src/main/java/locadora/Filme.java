@@ -30,13 +30,13 @@ public class Filme {
       switch (getCategoria()) {
         case NORMAL:
           PrecoNormal precoNormal = new PrecoNormal();
-          return precoNormal.calculaPrecoNormal(diasDeAluguel);
+          return precoNormal.calculaPreco(diasDeAluguel);
         case LANCAMENTO:
           PrecoLancamento precoLancamento = new PrecoLancamento();
-          return precoLancamento.calculaPrecoLancamento(diasDeAluguel);
+          return precoLancamento.calculaPreco(diasDeAluguel);
         case INFANTIL:
           PrecoInfantil precoInfantil = new PrecoInfantil();
-          return precoInfantil.calculaPrecoInfantil(diasDeAluguel);
+          return precoInfantil.calculaPreco(diasDeAluguel);
         default:
           throw new IllegalStateException("Categoria inválida");
     }

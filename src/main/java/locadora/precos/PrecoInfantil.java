@@ -1,7 +1,7 @@
 package locadora.precos;
 
 public class PrecoInfantil {
-  public double calculaPrecoInfantil(int diasDeAluguel) {
+  public double calculaPreco(int diasDeAluguel) {
     double totalParcialInfantil = 0.0;
     totalParcialInfantil += 1.0;
     if (diasDeAluguel > 3) {
