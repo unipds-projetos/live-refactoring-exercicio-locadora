@@ -9,28 +9,33 @@ public class GeradorDeRecibo {
             double totalParcial = 0.0;
           int diasDeAluguel = locacao.getDiasDeAluguel();
           Filme filme = locacao.getFilme();
-          switch (filme.getCategoria()) {
-                case NORMAL:
-                    totalParcial += 2.0;
-                    if (diasDeAluguel > 2) {
-                        totalParcial += (diasDeAluguel - 2) * 1.5;
-                    }
-                    break;
-                case LANCAMENTO:
-                    totalParcial += diasDeAluguel * 3;
-                    break;
-                case INFANTIL:
-                    totalParcial += 1.0;
-                    if (diasDeAluguel > 3) {
-                        totalParcial += (diasDeAluguel - 3) * 1.5;
-                    }
-                    break;
-            }
-            recibo += filme.getTitulo() + "\t" + String.valueOf(totalParcial) + "\n";
+          totalParcial = calculaValorLocacao(filme, totalParcial, diasDeAluguel);
+          recibo += filme.getTitulo() + "\t" + String.valueOf(totalParcial) + "\n";
             totalGeral += totalParcial;
         }
         recibo += "Total: " + String.valueOf(totalGeral) + "\n";
         return recibo;
     }
+
+  private double calculaValorLocacao(Filme filme, double totalParcial, int diasDeAluguel) {
+    switch (filme.getCategoria()) {
+        case NORMAL:
+            totalParcial += 2.0;
+            if (diasDeAluguel > 2) {
+                totalParcial += (diasDeAluguel - 2) * 1.5;
+            }
+            break;
+        case LANCAMENTO:
+            totalParcial += diasDeAluguel * 3;
+            break;
+        case INFANTIL:
+            totalParcial += 1.0;
+            if (diasDeAluguel > 3) {
+                totalParcial += (diasDeAluguel - 3) * 1.5;
+            }
+            break;
+    }
+    return totalParcial;
+  }
 
 }
