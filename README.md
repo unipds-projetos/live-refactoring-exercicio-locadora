@@ -1,6 +1,6 @@
 # Refactoring: Exemplo da Locadora
 
-Este repositório contém o código de exemplo clássico do livro "Refactoring: Improving the Design of Existing Code", de Martin Fowler (1ª edição, 1995). O projeto demonstra como um código inicialmente complexo e de difícil manutenção pode ser aprimorado através de uma série de refatorações sistemáticas catalogadas no livro.
+Este repositório contém o código de exemplo clássico do livro [Refactoring: Improving the Design of Existing Code](https://www.amazon.com.br/Refactoring-Improving-Design-Existing-Code/dp/0134757599), de Martin Fowler (1ª edição, 1999). O projeto demonstra como um código inicialmente complexo e de difícil manutenção pode ser aprimorado através de uma série de refatorações sistemáticas catalogadas no livro.
 
 ## Estrutura do Repositório
 
