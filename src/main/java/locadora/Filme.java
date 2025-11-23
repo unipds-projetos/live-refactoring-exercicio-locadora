@@ -25,25 +25,37 @@ public class Filme {
   double calculaValorLocacao(int diasDeAluguel) {
       switch (getCategoria()) {
         case NORMAL:
-          double totalParcialNormal = 0.0;
-            totalParcialNormal += 2.0;
-            if (diasDeAluguel > 2) {
-                totalParcialNormal += (diasDeAluguel - 2) * 1.5;
-            }
-          return totalParcialNormal;
+          return calculaPrecoNormal(diasDeAluguel);
         case LANCAMENTO:
-          double totalParcialLancamento = 0.0;
-            totalParcialLancamento += diasDeAluguel * 3;
-          return totalParcialLancamento;
+          return calculaPrecoLancamento(diasDeAluguel);
         case INFANTIL:
-          double totalParcialInfantil = 0.0;
-            totalParcialInfantil += 1.0;
-            if (diasDeAluguel > 3) {
-                totalParcialInfantil += (diasDeAluguel - 3) * 1.5;
-            }
-            return totalParcialInfantil;
+          return calculaPrecoInfantil(diasDeAluguel);
         default:
           throw new IllegalStateException("Categoria inválida");
     }
+  }
+
+  private double calculaPrecoInfantil(int diasDeAluguel) {
+    double totalParcialInfantil = 0.0;
+    totalParcialInfantil += 1.0;
+    if (diasDeAluguel > 3) {
+        totalParcialInfantil += (diasDeAluguel - 3) * 1.5;
+    }
+    return totalParcialInfantil;
+  }
+
+  private double calculaPrecoLancamento(int diasDeAluguel) {
+    double totalParcialLancamento = 0.0;
+    totalParcialLancamento += diasDeAluguel * 3;
+    return totalParcialLancamento;
+  }
+
+  private double calculaPrecoNormal(int diasDeAluguel) {
+    double totalParcialNormal = 0.0;
+    totalParcialNormal += 2.0;
+    if (diasDeAluguel > 2) {
+        totalParcialNormal += (diasDeAluguel - 2) * 1.5;
+    }
+    return totalParcialNormal;
   }
 }
