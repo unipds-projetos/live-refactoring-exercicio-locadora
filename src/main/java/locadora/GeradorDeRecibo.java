@@ -16,8 +16,9 @@ public class GeradorDeRecibo {
         return recibo;
     }
 
-  private double calculaValorLocacao(Filme filme, double totalParcial, int diasDeAluguel) {
-    switch (filme.getCategoria()) {
+  private double calculaValorLocacao(Filme filme, double totalParcialP, int diasDeAluguel) {
+      double totalParcial = 0.0;
+      switch (filme.getCategoria()) {
         case NORMAL:
             totalParcial += 2.0;
             if (diasDeAluguel > 2) {
